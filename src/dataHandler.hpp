@@ -2,7 +2,6 @@
 #define DATAHANDLER_HPP
 #include <fstream>
 #include "data.hpp"
-#include <vector>
 #include <cstdlib>
 #include <string>
 #include <map> // to map a class label to an enumerated value

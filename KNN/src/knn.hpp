@@ -1,25 +1,21 @@
 #ifndef KNN_H
 #define KNN_H
-#include <vector>
-#include "../../src/dataHandler.hpp"
+#include "../../src/common.hpp"
+#include <cmath>
+#include <limits>
+#include <iomanip>
 
-class KNN
+class KNN : public CommonData // inherits the traingin data, test data and validation data from common.hpp
 {
     private:
         int k;
         std::vector<data *> * neighbors;
-        std::vector<data *> * trainingData;
-        std::vector<data *> * testData;
-        std::vector<data *> * validationData;
 
     public:
         KNN(int);
         KNN();
         ~KNN();
         void findKNearest(data *queryPoint);
-        void setTrainingData(std::vector<data *> * vect);
-        void setTestData(std::vector<data *> * vect);
-        void setValidationData(std::vector<data *> * vect);
         void setK(int val);
 
         int predict(); // return the predicted class

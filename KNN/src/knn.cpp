@@ -1,12 +1,4 @@
 #include "knn.hpp"
-#include <cmath>
-#include <limits>
-#include <map>
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
-#include <fstream>
-#include "stdint.h"
 //#include "../data.hpp"
 
 KNN::KNN(int val)
@@ -20,18 +12,6 @@ KNN::KNN()
 KNN::~KNN()
 {
     //NOTHING TO DO
-}
-void KNN::setTrainingData(std::vector<data *> * vect1)
-{
-    trainingData = vect1;
-}
-void KNN::setTestData(std::vector<data *> * vect1)
-{
-    testData = vect1;
-}
-void KNN::setValidationData(std::vector<data *> * vect1)
-{   
-    validationData = vect1;
 }
 void KNN::setK(int val)
 {
