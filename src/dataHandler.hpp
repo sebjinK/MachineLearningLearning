@@ -12,13 +12,13 @@ class DataHandler
 {
     private:
         std::vector<data *> *dataArray; // all of the data pre-split
-        std::vector<data *> *trainingData;
+        std::vector<data *> *trainingData; 
         std::vector<data *> *testData;
         std::vector<data *> *validationData;
 
         int numClasses;
         int featureVectorSize;
-        std::map<uint8_t, int> classMap;
+        std::map<uint8_t, int> classMap; // each feature vector is mapped to a single class 
     
         const double TRAIN_SET_PERCENT = 0.75;
         const double TEST_SET_PERCENT = 0.2;
@@ -28,7 +28,7 @@ class DataHandler
     public:
         DataHandler();
         ~DataHandler();
-        void readFeatureVector(std::string path);
+        void readFeatureVector(std::string path); 
         void readFeatureLabels(std::string path);
         void splitData();
         void countClasses();

@@ -17,9 +17,9 @@ class KNN
         KNN();
         ~KNN();
         void findKNearest(data *queryPoint);
-        void setTrainingData(std::vector<data *> * vect1);
-        void setTestData(std::vector<data *> * vect1);
-        void setValidationData(std::vector<data *> * vect1);
+        void setTrainingData(std::vector<data *> * vect);
+        void setTestData(std::vector<data *> * vect);
+        void setValidationData(std::vector<data *> * vect);
         void setK(int val);
 
         int predict(); // return the predicted class
