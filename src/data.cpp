@@ -24,6 +24,10 @@
     {
         enumLabel = val;
     }
+    void data::setDistance(double val)
+    {
+        distance = val;
+    }
 
 
     int data::getFeatureVectorSize()
