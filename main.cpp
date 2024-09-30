@@ -1,6 +1,3 @@
-// #include "../src/data.cpp"
-// #include "../src/dataHandler.cpp"
-// #include "./src/knn.cpp"
 #include "./KNN/src/knn.hpp"
 #include <iostream>
 
