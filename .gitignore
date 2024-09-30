@@ -3,3 +3,6 @@
 /performance/*
 .
 ..
+./obj/*.o 
+./KNN/obj/*.o
+./KMEANS/obj/*.o

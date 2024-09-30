@@ -1,6 +1,8 @@
 #ifndef COMMON_HPP
 #define COMMON_HPP
 #include "dataHandler.hpp"
+#include <limits>
+#include <cmath>
 
 class CommonData
 {

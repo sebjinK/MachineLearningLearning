@@ -148,7 +148,10 @@ void DataHandler::countClasses()
     numClasses = count;
     std::cout << "Succcessdfully Extracted " << numClasses << " Unique Classes\n";
 }
-
+int DataHandler::getClassCounts()
+{
+    return numClasses;
+}
 uint32_t DataHandler::convertToLittleEndian(const unsigned char* bytes)
 {
     return (uint32_t) ((bytes[0] << 24) | (bytes[1] << 16) | (bytes[2] << 8) | (bytes[3])); // bytes[0 becomes the last bytes, bytes[1] becomes second to last, bytes[2] becomes third to last, bytes[3] becomes last

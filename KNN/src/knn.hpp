@@ -1,8 +1,6 @@
 #ifndef KNN_H
 #define KNN_H
 #include "../../src/common.hpp"
-#include <cmath>
-#include <limits>
 #include <iomanip>
 
 class KNN : public CommonData // inherits the traingin data, test data and validation data from common.hpp

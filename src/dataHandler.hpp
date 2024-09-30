@@ -36,6 +36,7 @@ class DataHandler
         std::vector<data *> * getTrainingData();
         std::vector<data *> * getTestData();
         std::vector<data *> * getValidationData();
+        int getClassCounts();
 };
 
 #endif
