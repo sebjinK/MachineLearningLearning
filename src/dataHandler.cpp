@@ -9,6 +9,45 @@ DataHandler::DataHandler()
 DataHandler::~DataHandler()
 {
     //FREE Dynamically Allocated stuff
+    for (auto d : *dataArray)
+    {
+        delete d;
+    }
+    delete dataArray;
+    delete testData;
+    delete trainingData;
+    delete validationData;
+}
+void DataHandler::readcsv(std::string path, std::string delimeter)
+{
+    numClasses = 0; 
+    std::ifstream data_file(path.c_str());
+    std::string line;
+    while (std::getline(data_file, line))
+    {
+        if(line.length() == 0)
+            continue;
+        data * d = new data();
+        d->setFeatureVector(new std::vector<double>());
+        size_t position = 0;
+        std::string token;
+        while ((position = line.find(delimeter)) != std::string::npos)
+        {
+            token = line.substr(0, position);
+            d->appendToFeatureVector(std::stod(token));
+            line.erase(0, position+delimeter.length());
+        }
+        if (class_map[line] == numClasses)
+            d->setLabel(class_map[line]);
+        else
+        {
+            class_map[line] = numClasses;
+            d->setLabel(class_map[line]);
+            numClasses++;
+        }
+        dataArray->push_back(d);
+    }
+    featureVectorSize = dataArray->at(0)->getDoubleFeatureVector()->size();
 }
 void DataHandler::readFeatureVector(std::string path)
 {
@@ -146,6 +185,8 @@ void DataHandler::countClasses()
         }
     }
     numClasses = count;
+    for (data *data : *dataArray)
+        data->setClassVector(numClasses);
     std::cout << "Succcessdfully Extracted " << numClasses << " Unique Classes\n";
 }
 int DataHandler::getClassCounts()

@@ -33,6 +33,15 @@ typedef struct cluster
         classCounts[initialPoint->getLabel()] = 1;
         mostFrequentClass = initialPoint->getLabel();
     }
+    // ~cluster()
+    // {
+    //     delete centroid;
+    //     for (auto point : *clusterPoints)
+    //     {
+    //         delete point; // Assuming 'data*' is dynamically allocated
+    //     }
+    //     delete clusterPoints;
+    // }
     void addToCluster(data* point)
     {
         // update the running avg of each centroid value

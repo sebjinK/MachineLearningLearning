@@ -11,7 +11,11 @@ KNN::KNN()
 }
 KNN::~KNN()
 {
-    //NOTHING TO DO
+    for (auto n : *neighbors)
+    {
+        delete n;
+    }
+    delete neighbors;
 }
 void KNN::setK(int val)
 {

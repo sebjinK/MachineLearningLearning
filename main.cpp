@@ -5,12 +5,13 @@ int main()
 {
     srand(time(0));
     DataHandler * dh = new DataHandler();
-    dh->readFeatureVector("./images&labels/t10k-images.idx3-ubyte");// read from MNIST
-    dh->readFeatureLabels("./images&labels/t10k-labels.idx1-ubyte"); //read from MNIST
+    dh->readFeatureVector("./MNISTDatabase/t10k-images.idx3-ubyte");// read from MNIST
+    dh->readFeatureLabels("./MNISTDatabase/t10k-labels.idx1-ubyte"); //read from MNIST
     //srand(time(0));
     dh->splitData();
     dh->countClasses();
 
+/*
     double performance = 0.0;
     double bestPerforamce = 0.0;
     int bestK = 1;
@@ -37,16 +38,17 @@ int main()
     km->initClusters();
     performance = km->test();
     std::cout << "Tested Perforamnce @ K = " << bestK << ": " << std::fixed << std::setprecision(2) << performance << '\n';
+*/
 
-
+    // KNN
     
     KNN * knearest = new KNN();
     knearest->setTrainingData(dh->getTrainingData());
     knearest->setTestData(dh->getTestData());
     knearest->setValidationData(dh->getValidationData());
-    performance = 0;
+    double performance = 0;
     double bestPerformance = 0;
-    bestK = 1;
+    int bestK = 1;
     for (int i = 1; i <= 4; i++)
     {
         if (i == 1)
@@ -68,4 +70,5 @@ int main()
     }
     knearest->setK(bestK);
     knearest->testPerformance();
+
 }

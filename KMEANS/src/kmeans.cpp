@@ -9,8 +9,15 @@ KMeans::KMeans(int k)
 }
 KMeans::~KMeans()
 {
-    // FIXME
+    //nothing to do
+    for (auto c : *clusters)
+    {
+        delete c;
+    }
+    delete clusters;
+    delete usedIndexes;
 }
+
 void KMeans::initClusters()
 {
     for (int i = 0; i < numClusters; i++)

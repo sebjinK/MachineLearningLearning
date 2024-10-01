@@ -2,9 +2,9 @@ CC=g++
 CPPFLAGS=-Wall -Wextra -std=c++11 -DEUCLID
 # SRC=main.cpp src/data.cpp src/dataHandler.cpp 
 OBJS=obj/main.o obj/dataHandler.o obj/data.o obj/common.o KMEANS/obj/kmeans.o KNN/obj/knn.o 
-TARGET=libdata.exe
+TARGET=KNN.exe
 
-all:$(TARGET)
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CPPFLAGS) $(OBJS) -o ./lib/$@
@@ -22,8 +22,8 @@ obj/common.o: ./src/common.cpp
 KMEANS/obj/kmeans.o: ./KMEANS/src/kmeans.cpp
 	$(CC) -fPIC $(CPPFLAGS) -c $< -o $@
 
-run: lib/$(TARGET)
-	./$<
+run: $(TARGET)
+	./lib/$<
 clean:
 	rm ./lib/$(TARGET)
 	rm ./obj/*.o
